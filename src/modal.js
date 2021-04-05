@@ -44,7 +44,7 @@
 		el_bottom.className = 'pk_noselect pk_modal_bottom';
 		// -----------
 		var a_cancel = d.createElement ('a');
-		a_cancel.innerHTML = 'CANCEL';
+		a_cancel.innerHTML = '取消';
 		a_cancel.className = 'pk_modal_cancel pk_modal_a_bottom';
 		a_cancel.onclick = function () {
 			q.Destroy ();
@@ -136,14 +136,14 @@
 		{
 			toolbar = [
 				{
-					title:'ON',
+					title:'开',
 					clss:'pk_inact',
 					callback: function ( q, el ) {
 						app.fireEvent ('RequestActionFX_TOGGLE');
 					}
 				},
 				{
-					title:'Preview',
+					title:'预览',
 					callback: function ( q ) {
 						config.preview && config.preview ( q );
 					}
@@ -192,7 +192,7 @@
 					{
 						var k = tb.length;
 						while (k-- > 0) {
-							if (tb[k].title === 'Preview') {
+							if (tb[k].title === '预览') {
 								tb[k].callback ( q );
 								break;
 							}
@@ -211,8 +211,8 @@
 
 			  q._evtoggle = function ( val ) {
 				  var el = q.els.toolbar[0];
-				  if (val) el.innerHTML = 'ON';
-				  else el.innerHTML = 'OFF';									
+				  if (val) el.innerHTML = '开';
+				  else el.innerHTML = '关';									
 			  };
 
 			  var stopped_listening = false;
@@ -383,7 +383,7 @@
 				  // now add preset edit button
 				  var edit_presets = d.createElement ('a');
 				  edit_presets.className = 'pk_sel_edt';
-				  edit_presets.innerHTML = '...<span>Save or Modify preset</span>';
+				  edit_presets.innerHTML = '...<span>保存或修改预设</span>';
 				  edit_presets.onclick = function () {
 				  	app.fireEvent ('RequestSavePreset');
 				  };

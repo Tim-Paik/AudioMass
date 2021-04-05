@@ -166,10 +166,10 @@
 
 			var x = new PKAudioFXModal({
 				id: filter_id,
-			    title:'Apply Gain to selected range',
+			    title:'将增益应用到选定片段',
 
 				presets:[
-					{name:'Silence',val:0},
+					{name:'静音',val:0},
 					{name:'-50%',val:0.5},
 					{name:'-25%',val:0.75},
 					{name:'+25%',val:1.25},
@@ -187,7 +187,7 @@
 			},
 			  buttons: [
 				{
-					title:'Apply Gain',
+					title:'应用增益',
 					clss:'pk_modal_a_accpt',
 					callback: function( q ) {
 						var value = getvalue ( q );
@@ -199,7 +199,7 @@
 					}
 				}
 			  ],
-			  body:'<div class="pk_row" style="border:none"><label>Gain percentage</label>' + 
+			  body:'<div class="pk_row" style="border:none"><label>增益百分比</label>' + 
 				'<input type="range" class="pk_horiz" min="0.0" max="2.5" step="0.01" value="1.0" />'+
 				'<span class="pk_val">100%</span></div>' +
 				'<div class="pk_row" style="border:none;padding:0">',
@@ -261,7 +261,7 @@
 
 			  buttons: [
 				{
-					title:'Apply Rate',
+					title:'应用速度更改',
 					clss:'pk_modal_a_accpt',
 					callback: function( q ) {
 						var input = q.el_body.getElementsByTagName('input')[0];
@@ -274,7 +274,7 @@
 					}
 				}
 			  ],
-			  body:'<div class="pk_row" style="border:none"><label>Playback Rate</label>' + 
+			  body:'<div class="pk_row" style="border:none"><label>播放速度</label>' + 
 				'<input type="range" class="pk_horiz" min="0.2" max="2.0" step="0.05" value="1.0" />'+
 				'<span class="pk_val">1.0</span></div>',
 			  setup:function( q ) {
@@ -311,14 +311,14 @@
 
 			var x = new PKAudioFXModal({
 				id: filter_id,
-			  	title:'Channel Info',
+			  	title:'通道信息',
 			ondestroy: function ( q ) {
 				app.ui.InteractionHandler.on = false;
 				app.ui.KeyHandler.removeCallback (modal_esc_key);
 			},
 			buttons: [
 				{
-					title:'Apply Changes',
+					title:'应用更改',
 					clss:'pk_modal_a_accpt',
 					callback: function( q ) {
 						if (mode === 1)
@@ -360,21 +360,21 @@
 
 					'<div class="pk_row">'+
 					'<input type="checkbox" class="pk_check pk_c_mm" id="xmm" name="makeMono">'+
-					'<label for="xmm">Make Mono</label></div>' + 
+					'<label for="xmm">合并到单声道</label></div>' + 
 			  		'<div class="pk_row" style="padding-left:30px">' +
 					'<input type="radio" class="pk_check pk_c_c" id="kf6" name="chnl" value="left">'+
-					'<label class="pk_dis" for="kf6">Left Channel</label>'+
+					'<label class="pk_dis" for="kf6">左声道</label>'+
 					'<input type="radio" class="pk_check pk_c_c" id="kf7" name="chnl" value="right">'+
-					'<label class="pk_dis" for="kf7">Right Channel</label>'+
+					'<label class="pk_dis" for="kf7">右声道</label>'+
 					'</div>'+ 
 
 					'<div class="pk_row"><input type="checkbox" class="pk_check pk_c_fl" id="xfc" name="flipChn">'+
-					'<label for="xfc">Flip Channels</label></div>' + 
+					'<label for="xfc">交换声道</label></div>' + 
 					'</div>' +
 
 					'<div class="pk_row pk_ms" style="border:none;display:none">'+
 						'<div class="pk_row"><input type="checkbox" class="pk_check pk_c_ms" id="xms" checked name="makeStereo">'+
-						'<label for="xms">Make Stereo</label></div>' + 
+						'<label for="xms">转换为立体声</label></div>' + 
 					'</div>',
 			  setup:function( q ) {
 			  	  var main = null;
@@ -438,14 +438,14 @@
 
 		app.listenFor ('RequestFXUI_Silence', function () {
 			var x = new PKSimpleModal({
-			  title: 'Insert Silence',
+			  title: '插入静音片段',
 			  ondestroy: function( q ) {
 				UI.InteractionHandler.on = false;
 				UI.KeyHandler.removeCallback ('modalTemp');
 			  },
 			  buttons:[
 				{
-					title:'Insert Silence',
+					title:'插入静音片段',
 					clss:'pk_modal_a_accpt',
 					callback: function( q ) {
 						var input = q.el_body.getElementsByClassName('pk_horiz')[0];
@@ -464,10 +464,10 @@
 				}
 			  ],
 			  body:'<div class="pk_row"><input type="radio" class="pk_check" id="ifeq" name="rdslnc" value="beginning">'+ 
-				'<label  for="ifeq">Insert silence at beginning</label><br/>' +
+				'<label  for="ifeq">在开头插入静音片段</label><br/>' +
 				'<input type="radio" class="pk_check"  id="vgdja" name="rdslnc" checked value="cursor">'+
-				'<label for="vgdja">Insert silence at current cursor (<span class="pkcdpk"></span>)</label></div>'+
-				'<div class="pk_row"><label>Silence in seconds</label>'+
+				'<label for="vgdja">在光标处插入静音片段 (<span class="pkcdpk"></span>)</label></div>'+
+				'<div class="pk_row"><label>静音时长</label>'+
 				'<input type="range" min="0.0" max="30.0" class="pk_horiz" step="0.01" value="5.0" />'+
 				'<span class="pk_val">5s</span></div>',
 			  setup:function( q ) {
@@ -525,7 +525,7 @@
 
 			var x = new PKAudioFXModal({
 			  id    : filter_id,
-			  title : 'Apply Compression to selected range',
+			  title : '应用压缩到选定片段',
 			  clss  : 'pk_bigger',
 			ondestroy: function ( q ) {
 				app.ui.InteractionHandler.on = false;
@@ -546,7 +546,7 @@
 
 			  buttons: [
 				{
-					title:'Apply',
+					title:'应用',
 					clss:'pk_modal_a_accpt',
 					callback: function( q ) {		
 						var inputs = q.el_body.getElementsByTagName('input');
@@ -558,23 +558,23 @@
 					}
 				}
 			  ],
-			  body:'<div class="pk_row"><label class="pk_line">Threshold</label>' + 
+			  body:'<div class="pk_row"><label class="pk_line">阈值</label>' + 
 				'<input class="pk_horiz" type="range" min="-100" max="0" step="0.1" value="-24.0" />'+
 				'<span class="pk_val">-24.0</span></div>'+
 
-				'<div class="pk_row"><label class="pk_line">Knee</label>' + 
+				'<div class="pk_row"><label class="pk_line">强度</label>' + 
 				'<input class="pk_horiz" type="range" min="0.0" max="40.0" step="0.01" value="30.0" />'+
 				'<span class="pk_val">30.0</span></div>'+
 
-				'<div class="pk_row"><label class="pk_line">Ratio</label>' + 
+				'<div class="pk_row"><label class="pk_line">比率</label>' + 
 				'<input class="pk_horiz" type="range" min="1.0" max="20.0" step="0.01" value="12.0" />'+
 				'<span class="pk_val">12.0</span></div>'+
 
-				'<div class="pk_row"><label class="pk_line">Attack</label>' + 
+				'<div class="pk_row"><label class="pk_line">启奏（起始缓冲）</label>' + 
 				'<input class="pk_horiz" type="range" min="0.0" max="1.0" step="0.001" value="0.003" />'+
 				'<span class="pk_val">0.003</span></div>'+
 
-				'<div class="pk_row" style="border:none"><label class="pk_line">Release</label>' + 
+				'<div class="pk_row" style="border:none"><label class="pk_line">释放（结束缓冲）</label>' + 
 				'<input class="pk_horiz" type="range" min="0.0" max="1.0" step="0.001" value="0.25" />'+
 				'<span class="pk_val">0.25</span></div>',
 				//'<a style="float:left;margin:0" class="pk_modal_a_bottom">Volume Graph</a></div>',
@@ -617,14 +617,14 @@
 			app.fireEvent ('RequestSelect', 1);
 
 			var x = new PKSimpleModal({
-			  title: 'Normalize',
+			  title: '规格化',
 			  ondestroy: function( q ) {
 				app.ui.InteractionHandler.on = false;
 				app.ui.KeyHandler.removeCallback ('modalTemp');
 			  },
 			  buttons:[
 				{
-					title:'Normalize Audio',
+					title:'规格化音频',
 					clss:'pk_modal_a_accpt',
 					callback: function( q ) {
 						var input = q.el_body.getElementsByClassName('pk_horiz')[0];
@@ -638,8 +638,8 @@
 			  ],
 			  body:'<div class="pk_row">'+
 			    '<input type="checkbox" id="vhcjgs" class="pk_check" name="normEqually">'+
-				'<label for="vhcjgs">Normalize L/R Equally</label></div>' + 
-				'<div class="pk_row" style="border:none"><label>Normalize to</label>'+
+				'<label for="vhcjgs">左右声道相同规格化</label></div>' + 
+				'<div class="pk_row" style="border:none"><label>规格化到</label>'+
 				'<input type="range" min="0.0" max="2.0" class="pk_horiz" step="0.01" value="1.0" />'+
 				'<span class="pk_val">100%</span></div>',
 			  setup:function( q ) {
@@ -840,7 +840,7 @@
 
 			var x = new PKAudioFXModal({
 			  id: filter_id,
-			  title:'Graphic EQ',
+			  title:'图形均衡器',
 			  clss: num_of_bands === 20 ? 'pk_dens' : '',
 			  custom_pres:custom_presets.Get (filter_id),
 			ondestroy: function ( q ) {
@@ -856,7 +856,7 @@
 
 			  buttons: [
 				{
-					title:'Apply EQ',
+					title:'应用均衡器',
 					clss:'pk_modal_a_accpt',
 					callback: function( q ) {
 						var ranges = q.el_body.getElementsByTagName('input');
@@ -911,14 +911,14 @@
 			app.fireEvent ('RequestSelect', 1);
 
 			var x = new PKAudioFXModal({
-			  title: 'Hard Limiting',
+			  title: '强制限幅',
 			  ondestroy: function( q ) {
 				app.ui.InteractionHandler.on = false;
 				app.ui.KeyHandler.removeCallback ('modalTemp');
 			  },
 			  buttons:[
 				{
-					title:'Hard Limiting',
+					title:'强制限幅',
 					clss:'pk_modal_a_accpt',
 					callback: function( q ) {
 						app.fireEvent ('RequestActionFX_HardLimit', q.updateFilter (q));
@@ -931,17 +931,17 @@
 				},
 			  body:
 				'<div class="pk_row"><input type="checkbox" class="pk_check" id="xighs" name="normEqually">'+
-				'<label for="xighs">Hard Limiting</label></div>' + 
+				'<label for="xighs">强制限幅</label></div>' + 
 
-				'<div class="pk_row"><label>Limit to</label>'+
+				'<div class="pk_row"><label>限制到</label>'+
 				'<input type="range" min="0.1" max="1.0" class="pk_horiz pk_w180" step="0.01" value="0.99" />'+
 				'<span class="pk_val">99%</span></div>'+
 
-				'<div class="pk_row"><label>Ratio between lows and highs</label>'+
+				'<div class="pk_row"><label>高点与低点比率</label>'+
 				'<input type="range" min="0.0" max="1.0" class="pk_horiz pk_w180" step="0.01" value="0.0" />'+
-				'<span class="pk_val">Ratio 0%</span></div>'+
+				'<span class="pk_val">比率 0%</span></div>'+
 
-				'<div class="pk_row"><label>Look Ahead (ms)</label>'+
+				'<div class="pk_row"><label>预测时间 (ms)</label>'+
 				'<input type="range" min="1.0" max="500.0" class="pk_horiz pk_w180" step="0.01" value="10.0" />'+
 				'<span class="pk_val">10 ms</span></div>',
 			  updateFilter : function ( q ) {
@@ -1014,7 +1014,7 @@
 
 			var x = new PKAudioFXModal({
 			  id    : filter_id,
-			  title : 'Apply Delay to selected range',
+			  title : '应用延迟到选定片段',
 			  clss  : 'pk_bigger',
 			ondestroy: function ( q ) {
 				app.ui.InteractionHandler.on = false;
@@ -1044,15 +1044,15 @@
 					}
 				}
 			  ],
-			  body:'<div class="pk_row"><label class="pk_line">Delay Time</label>' + 
+			  body:'<div class="pk_row"><label class="pk_line">延迟时长</label>' + 
 				'<input class="pk_horiz" type="range" min="0.0" max="6.0" step="0.01" value="0.28" />'+
 				'<span class="pk_val">0.28</span></div>'+
 
-				'<div class="pk_row"><label class="pk_line">Feedback</label>' + 
+				'<div class="pk_row"><label class="pk_line">回馈</label>' + 
 				'<input class="pk_horiz" type="range" min="0.0" max="1.0" step="0.01" value="0.5" />'+
 				'<span class="pk_val">0.5</span></div>'+
 
-				'<div class="pk_row"><label class="pk_line">Wet</label>' + 
+				'<div class="pk_row"><label class="pk_line">混合 (干->湿)</label>' + 
 				'<input class="pk_horiz" type="range" min="0.0" max="1.0" step="0.01" value="0.4" />'+
 				'<span class="pk_val">0.4</span></div>',
 				//'<a style="float:left;margin:0" class="pk_modal_a_bottom">Volume Graph</a></div>',
@@ -1111,7 +1111,7 @@
 
 			var x = new PKAudioFXModal({
 			  id    : filter_id,
-			  title : 'Apply Distortion to selected range',
+			  title : '将失真应用于选定片段',
 			  clss  : 'pk_bigger',
 			ondestroy: function ( q ) {
 				app.ui.InteractionHandler.on = false;
@@ -1124,7 +1124,7 @@
 
 			  buttons: [
 				{
-					title:'Apply',
+					title:'应用',
 					clss:'pk_modal_a_accpt',
 					callback: function( q ) {		
 						var val = getvalue (q);
@@ -1134,7 +1134,7 @@
 					}
 				}
 			  ],
-			  body:'<div class="pk_row"><label class="pk_line">Gain</label>' + 
+			  body:'<div class="pk_row"><label class="pk_line">增益</label>' + 
 				'<input class="pk_horiz" type="range" min="0.0" max="2.0" step="0.01" value="0.5" />'+
 				'<span class="pk_val">0.5</span></div>',
 				// '<a style="float:left;margin:0" class="pk_modal_a_bottom">Volume Graph</a></div>',
@@ -1181,7 +1181,7 @@
 
 			var x = new PKAudioFXModal({
 			  id    : filter_id,
-			  title : 'Apply Reverb to selected range',
+			  title : '将混响应用于选定片段',
 			  clss  : 'pk_bigger',
 			ondestroy: function ( q ) {
 				app.ui.InteractionHandler.on = false;
@@ -1204,7 +1204,7 @@
 
 			  buttons: [
 				{
-					title:'Apply',
+					title:'应用',
 					clss:'pk_modal_a_accpt',
 					callback: function( q ) {		
 						var inputs = q.el_body.getElementsByTagName('input');
@@ -1220,11 +1220,11 @@
 					}
 				}
 			  ],
-			  body:'<div class="pk_row"><label class="pk_line">Time</label>' + 
+			  body:'<div class="pk_row"><label class="pk_line">时长</label>' + 
 				'<input class="pk_horiz" type="range" min="0.0" max="3.0" step="0.01" value="0.3" />'+
 				'<span class="pk_val">0.3</span></div>'+
 
-				'<div class="pk_row"><label class="pk_line">Decay</label>' + 
+				'<div class="pk_row"><label class="pk_line">衰减</label>' + 
 				'<input class="pk_horiz" type="range" min="0.0" max="3.0" step="0.01" value="0.05" />'+
 				'<span class="pk_val">0.05</span></div>'+
 
@@ -1280,14 +1280,14 @@
 				var render_tags = function ( el, tags ) {
 					var str = '<div style="margin-top:18px">';
 
-					str += '<div><span class="pk_id3ttl">Artist</span><span>' + (tags.artist || '-') + '</span></div>';
-					str += '<div><span class="pk_id3ttl">Title</span><span>' + (tags.title || '-') + '</span></div>';
-					str += '<div><span class="pk_id3ttl">Album</span><span>' + (tags.album || '-') + '</span></div>';
-					str += '<div><span class="pk_id3ttl">Year</span><span>' + (tags.year || '-') + '</span></div>';
-					str += '<div><span class="pk_id3ttl">Genre</span><span>' + (tags.genre || '-') + '</span></div>';
-					str += '<div style="max-width:700px"><span class="pk_id3ttl">Comment</span><span>' + ((tags.comment||{}).text || '-') + '</span></div>';
-					str += '<div><span class="pk_id3ttl">Track</span><span>' + (tags.track || '-') + '</span></div>';
-					str += '<div style="max-width:700px"><span class="pk_id3ttl">Lyrics</span><span>' + ((tags.lyrics||{}).lyrics || '-') + '</span></div>';
+					str += '<div><span class="pk_id3ttl">艺术家</span><span>' + (tags.artist || '-') + '</span></div>';
+					str += '<div><span class="pk_id3ttl">标题</span><span>' + (tags.title || '-') + '</span></div>';
+					str += '<div><span class="pk_id3ttl">专辑</span><span>' + (tags.album || '-') + '</span></div>';
+					str += '<div><span class="pk_id3ttl">年份</span><span>' + (tags.year || '-') + '</span></div>';
+					str += '<div><span class="pk_id3ttl">流派</span><span>' + (tags.genre || '-') + '</span></div>';
+					str += '<div style="max-width:700px"><span class="pk_id3ttl">注释</span><span>' + ((tags.comment||{}).text || '-') + '</span></div>';
+					str += '<div><span class="pk_id3ttl">轨道</span><span>' + (tags.track || '-') + '</span></div>';
+					str += '<div style="max-width:700px"><span class="pk_id3ttl">歌词</span><span>' + ((tags.lyrics||{}).lyrics || '-') + '</span></div>';
 
 					if ('picture' in tags)
 					{
@@ -1297,7 +1297,7 @@
 							base64str += String.fromCharCode (image.data[i]);
 						}
 
-						str += '<div><span style="float:left" class="pk_id3ttl">Cover</span>' +
+						str += '<div><span style="float:left" class="pk_id3ttl">封面</span>' +
 								'<span><img style="max-width:340px" src="data:' + 
 								image.format + ';base64,' + window.btoa(base64str) + '"/></span></div>';
 					}
@@ -1306,7 +1306,7 @@
 				};
 
 				new PKSimpleModal({
-				  title:'ID3 Metatags Explorer',
+				  title:'ID3 元数据资源管理器',
 
 				  ondestroy: function( q ) {
 				  	app.ui.InteractionHandler.forceUnset (modal_id);
@@ -1316,7 +1316,7 @@
 				  buttons:[
 				  ],
 				  body:'<input type="file" accept="audio/*" />'+
-				  	'<div class="pk_row pk_ttx">Choose file to view audio metatags!</div>',
+				  	'<div class="pk_row pk_ttx">选择文件以查看音频元数据！</div>',
 				  setup:function( q ) {
 				  		var input  = q.el_body.getElementsByTagName ('input')[0];
 				  		var txt_el = q.el_body.getElementsByClassName ('pk_ttx')[0];
@@ -1328,7 +1328,7 @@
 								var tags = PKAudioEditor.engine.ID3 (this.result);
 
 								if (!tags) {
-									txt_el.innerHTML = '<div style="padding:30px 0">No audio metadata found...</div>';
+									txt_el.innerHTML = '<div style="padding:30px 0">找不到音频元数据...</div>';
 								} else {
 									render_tags (txt_el, tags);
 								}
@@ -1380,7 +1380,7 @@
 			var inputs = el.querySelectorAll('select, input');
 			var preset_obj = {
 				target:curr_filter_ui.id,
-				name:'My Preset',
+				name:'我的预设',
 				id:curr_filter_ui.id + '_' + ((Math.random() * 99) >> 0),
 				date:Date.now(),
 				val:''
@@ -1421,11 +1421,11 @@
 							default_txt = 'value="' + custom_obj.name + '"';
 
 							btn_delete = {
-									title:'Delete',
+									title:'删除',
 									clss:'pk_modal_a_red',
 									callback: function( q ) {
 
-										OneUp ('Successfully deleted preset!', 1400);
+										OneUp ('删除预设成功！', 1400);
 
 										var custom = custom_presets.Del (preset_obj.target, custom_id);
 										app.fireEvent ('DidSetPresets', preset_obj.target, custom);
@@ -1436,7 +1436,7 @@
 							};
 
 							btn_update = {
-									title:'Update',
+									title:'更新',
 									callback: function( q ) {
 
 										if (custom_obj)
@@ -1448,7 +1448,7 @@
 
 											if (value.length > 0)
 											{
-												OneUp ('Successfully updated preset!', 1400);
+												OneUp ('更新预设成功！', 1400);
 
 												// add preset to localStorage
 												custom_obj.name = value;
@@ -1463,7 +1463,7 @@
 											}
 											else
 											{
-												OneUp ('Name is too short...', 1200);
+												OneUp ('名称过短...', 1200);
 											}
 										}
 										// -
@@ -1471,10 +1471,10 @@
 							};
 					}
 
-					var title = 'Save Custom Preset for filter "' + curr_filter_ui.id + '"';
+					var title = '保存自定义滤波预设 "' + curr_filter_ui.id + '"';
 					if (!is_new) {
 						var cname = custom_obj.name;
-						title = 'Edit Custom Preset "' + cname + '", for filter "' + curr_filter_ui.id + '"';
+						title = '编辑自定义预设 "' + cname + '", 滤波预设 "' + curr_filter_ui.id + '"';
 					}
 
 					new PKSimpleModal({
@@ -1489,7 +1489,7 @@
 
 					  buttons:[
 						{
-							title: is_new ? 'Save' : 'Save As New',
+							title: is_new ? '保存' : '另存为',
 							clss:'pk_modal_a_accpt',
 							callback: function( q ) {
 								var input = q.el_body.getElementsByTagName ('input')[0];
@@ -1499,7 +1499,7 @@
 
 								if (value.length > 0)
 								{
-									OneUp ('Successfully saved preset!', 1400);
+									OneUp ('保存预设成功!', 1400);
 
 									// add preset to localStorage
 									preset_obj.name = value;
@@ -1513,7 +1513,7 @@
 								}
 								else
 								{
-									OneUp ('Name is too short...', 1200);
+									OneUp ('名称过短...', 1200);
 								}
 								// -
 							}
@@ -1522,8 +1522,8 @@
 						btn_update,
 						btn_delete
 					  ],
-					  body:'<label for="k07">Preset Name</label>' + 
-						'<input style="min-width:340px" maxlength="16" placeholder="Please type a name, eg: My Preset" ' + default_txt + ' class="pk_txt" type="text" id="k07" />',
+					  body:'<label for="k07">预设名称</label>' + 
+						'<input style="min-width:340px" maxlength="16" placeholder="请输入名称，例如：我的预设" ' + default_txt + ' class="pk_txt" type="text" id="k07" />',
 					  setup:function( q ) {
 					  	  	// app.fireEvent ('RequestPause');
 
@@ -1586,7 +1586,7 @@
 
 		app.listenFor ('RequestDragI', function ( url ) {
 			if (app.isMobile) {
-				alert ('unsupported on mobile');
+				alert ('不支持在移动设备');
 				return ;
 			}
 
@@ -1696,16 +1696,16 @@
 		app.listenFor ('RequestShowFreqAn', function ( url, args_arr ) {
 
 			if (app.isMobile) {
-				alert ('Currently unsupported on mobile');
+				alert ('目前在不支持移动设备');
 				return ;
 			}
 
 			var toggle = args_arr[ 0 ];
 			var type   = args_arr[ 1 ];
-			var title = 'Frequency Analysis';
+			var title = '频率分析';
 			var curr_win = eq_win[ url ];
 
-			if (url === 'sp') title = 'Spectrum Analysis';
+			if (url === 'sp') title = '频谱分析';
 
 			var toggled = false;
 			if (curr_win && toggle)
@@ -1767,7 +1767,7 @@
 							"location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=600,height=188" + extra);
 
 					if (!wnd) {
-						OneUp ('Please allow pop-ups for AudioMass!', 3600, 'pk_r');
+						OneUp ('请允许AudioMass的弹出窗口！', 3600, 'pk_r');
 						return ;
 					}
 

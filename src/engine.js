@@ -44,7 +44,7 @@
 					setTimeout(function() { app.fireEvent ('DidDownloadFile'); }, 12);
 					app.stopListeningForName ('RequestCancelModal');
 
-					OneUp ('Canceled Loading', 1350);
+					OneUp ('加载已取消', 1350);
 				});
 
 				app.fireEvent ('RequestZoomUI', 0);
@@ -59,7 +59,7 @@
 			{
 					//  ----------------
 					new PKSimpleModal ({
-						title : 'Open or append',
+						title : '打开或追加',
 						clss  : 'pk_modal_anim pk_fnt10',
 						ondestroy : function ( q ) {
 							app.ui.InteractionHandler.on = false;
@@ -67,7 +67,7 @@
 						},
 						buttons:[
 							{
-								title:'OPEN NEW',
+								title:'打开',
 								callback: function( q ) {
 									wavesurfer.backend._add = 0;
 									func ();
@@ -75,7 +75,7 @@
 								}
 							},
 							{
-								title:'ADD IN EXISTING',
+								title:'追加到现有轨道',
 								callback: function( q ) {
 									wavesurfer.backend._add = 1;
 									func ();
@@ -83,7 +83,7 @@
 								}
 							}
 						],
-						body    : '<p>Append file to existing track?</p>',
+						body    : '<p>将文件追加到现有轨道?</p>',
 						setup   : function( q ) {
 							app.ui.InteractionHandler.checkAndSet ('modal');
 							app.ui.KeyHandler.addCallback ('modalTempErr', function ( e ) {
@@ -163,7 +163,7 @@
 										setTimeout(function() { app.fireEvent ('DidDownloadFile'); }, 12);
 										app.stopListeningForName ('RequestCancelModal');
 
-										OneUp ('Canceled Loading', 1350);
+										OneUp ('加载已取消', 1350);
 									});
 
 									app.fireEvent ('WillDownloadFile');
@@ -176,7 +176,7 @@
 							{
 									//  ----------------
 									new PKSimpleModal ({
-										title : 'Open or append',
+										title : '打开或追加',
 										clss  : 'pk_modal_anim pk_fnt10',
 										ondestroy : function ( q ) {
 											app.ui.InteractionHandler.on = false;
@@ -184,7 +184,7 @@
 										},
 										buttons:[
 											{
-												title:'OPEN NEW',
+												title:'打开',
 												callback: function( q ) {
 													wavesurfer.backend._add = 0;
 													func ();
@@ -192,7 +192,7 @@
 												}
 											},
 											{
-												title:'ADD IN EXISTING',
+												title:'追加到现有轨道',
 												callback: function( q ) {
 													wavesurfer.backend._add = 1;
 													func ();
@@ -200,7 +200,7 @@
 												}
 											}
 										],
-										body    : '<p>Append file to existing track?</p>',
+										body    : '<p>将文件追加到现有轨道?</p>',
 										setup   : function( q ) {
 											app.ui.InteractionHandler.checkAndSet ('modal');
 											app.ui.KeyHandler.addCallback ('modalTempErr', function ( e ) {
@@ -261,7 +261,7 @@
 						setTimeout(function() { app.fireEvent ('DidDownloadFile'); }, 12);
 						app.stopListeningForName ('RequestCancelModal');
 
-						OneUp ('Canceled Loading', 1380);
+						OneUp ('加载已取消', 1380);
 					}
 				});
 
@@ -371,7 +371,7 @@
 						setTimeout(function() { app.fireEvent ('DidDownloadFile'); }, 12);
 						app.stopListeningForName ('RequestCancelModal');
 
-						OneUp ('Canceled Loading', 1350);
+						OneUp ('加载已取消', 1350);
 					}
 				});
 
@@ -427,7 +427,7 @@
 			// loaded successfully
 			app.stopListeningForName ('RequestCancelModal');
 
-			setTimeout(function () {OneUp ('Loaded Successfully')}, 180);
+			setTimeout(function () {OneUp ('加载成功')}, 180);
 
 			// check if the audio file is mono or stereo and rebuild both UI and audio engine accordingly...
 			if (wavesurfer.backend.buffer.numberOfChannels === 1) {
@@ -973,7 +973,7 @@
 			app.fireEvent ('DidSetClipboard', 1);
 			app.fireEvent ('DidCut', cutbuffer);
 			
-			OneUp ('Cut :: ' + q.TrimTo (start, 2) + ' to ' + q.TrimTo (start/1 + end/1, 2), 1100);
+			OneUp ('剪切 :: ' + q.TrimTo (start, 2) + ' 到 ' + q.TrimTo (start/1 + end/1, 2), 1100);
 		});
 		
 		app.listenFor ('RequestActionCopy', function () {
@@ -996,7 +996,7 @@
 			app.fireEvent ('DidSetClipboard', 1);
 			app.fireEvent ('DidCopy', copybuffer);
 
-			OneUp ('Copied range');
+			OneUp ('选区已复制');
 		});
 		
 		app.listenFor ('RequestActionSilence', function ( offset, silence_duration ) {
@@ -1036,7 +1036,7 @@
 
 			app.fireEvent ('RequestSeekTo', (dims[0]/wavesurfer.getDuration()));
 			
-			OneUp ('Inserted Silence');
+			OneUp ('已插入静音片段');
 		});
 
 		app.listenFor ('RequestActionPaste', function () {
@@ -1089,7 +1089,7 @@
 			}
 			app.fireEvent ('RequestSeekTo', new_seek);
 
-			OneUp ('Paste to ' + dims[0].toFixed(2), 982);
+			OneUp ('已粘贴到 ' + dims[0].toFixed(2), 982);
 		});
 
 		var _sk = false;
@@ -1234,7 +1234,7 @@
 			handleStateInline ( start, end );
 			AudioUtils.FX( start, end, AudioUtils.FXBank.HardLimit ( val ) );
 			
-			OneUp ('Applied Hard Limit (fx)');
+			OneUp ('已应用强制限幅 (fx)');
 		});
 		
 		app.listenFor ('RequestActionFX_PARAMEQ', function ( val ) {
@@ -1268,7 +1268,7 @@
 			handleStateInline ( start, end );
 			AudioUtils.FX( start, end, AudioUtils.FXBank.ParametricEQ ( val ) );
 			
-			OneUp ('Applied Parametric EQ (fx)');
+			OneUp ('已应用参数均衡器 (fx)');
 		});
 		app.listenFor ('RequestActionFX_PREVIEW_PARAMEQ', function ( val ) {
 			if (!q.is_ready || !val) return ;
@@ -1354,7 +1354,7 @@
 			handleStateInline ( start, end );
 			AudioUtils.FX( start, end, AudioUtils.FXBank.Distortion ( val ) );
 			
-			OneUp ('Applied Distortion (fx)');
+			OneUp ('已应用失真 (fx)');
 		});
 
 		app.listenFor ('RequestActionFX_PREVIEW_DELAY', function ( val ) {
@@ -1414,7 +1414,7 @@
 			handleStateInline ( start, end );
 			AudioUtils.FX( start, end, AudioUtils.FXBank.Delay ( val ) );
 			
-			OneUp ('Applied Delay (fx)');
+			OneUp ('已应用延迟 (fx)');
 		});
 
 		app.listenFor ('RequestActionFX_PREVIEW_REVERB', function ( val ) {
@@ -1474,7 +1474,7 @@
 			handleStateInline ( start, end );
 			AudioUtils.FX( start, end, AudioUtils.FXBank.Reverb ( val ) );
 			
-			OneUp ('Applied Reverb (fx)');
+			OneUp ('已应用混响 (fx)');
 		});
 
 		app.listenFor ('RequestActionFX_PREVIEW_COMPRESSOR', function ( val ) {
@@ -1535,7 +1535,7 @@
 			handleStateInline ( start, end );
 			AudioUtils.FX( start, end, AudioUtils.FXBank.Compressor ( val ) );
 			
-			OneUp ('Applied Compressor (fx)');
+			OneUp ('已应用压缩 (fx)');
 		});
 		app.listenFor ('RequestActionFX_Normalize', function ( val ) {
 			if (!q.is_ready) return ;
@@ -1568,7 +1568,7 @@
 			handleStateInline ( start, end );
 			AudioUtils.FX( start, end, AudioUtils.FXBank.Normalize ( val ) );
 			
-			OneUp ('Applied Normalize');
+			OneUp ('已应用规格化');
 		});
 
 		app.listenFor ('RequestActionFX_Invert', function ( val ) {
@@ -1602,7 +1602,7 @@
 			handleStateInline ( start, end );
 			AudioUtils.FX( start, end, AudioUtils.FXBank.Invert() );
 			
-			OneUp ('Applied Invert');
+			OneUp ('已应用反相');
 		});
 
 		app.listenFor ('RequestActionFX_RemSil', function ( val ) {
@@ -1771,7 +1771,7 @@
 				wavesurfer.drawBuffer();
 			},40);
 
-			OneUp ('Applied :: Remove Silence');
+			OneUp ('已应用消除静音');
 		});
 
 
@@ -1875,7 +1875,7 @@
 				app.fireEvent ('RequestSeekTo', 0.00);
 			}
 
-			OneUp ('Applied Channel Change: ' + val);
+			OneUp ('已应用声道更改: ' + val);
 		});
 
 		app.listenFor ('RequestActionFX_Reverse', function ( val ) {
@@ -1909,7 +1909,7 @@
 			handleStateInline ( start, end );
 			AudioUtils.FX( start, end, AudioUtils.FXBank.Reverse() );
 			
-			OneUp ('Applied Reverse');
+			OneUp ('已应用反向');
 		});
 		app.listenFor ('RequestActionFX_FadeIn', function ( val ) {
 			if (!q.is_ready) return ;
@@ -1942,7 +1942,7 @@
 			handleStateInline ( start, end );
 			AudioUtils.FX( start, end, AudioUtils.FXBank.FadeIn() );
 			
-			OneUp ('Applied Fade In (fx)');
+			OneUp ('已应用淡入 (fx)');
 		});
 		app.listenFor ('RequestActionFX_FadeOut', function ( val ) {
 			if (!q.is_ready) return ;
@@ -1975,7 +1975,7 @@
 			handleStateInline ( start, end );
 			AudioUtils.FX( start, end, AudioUtils.FXBank.FadeOut() );
 			
-			OneUp ('Applied Fade Out (fx)');
+			OneUp ('已应用淡出 (fx)');
 		});
 		
 		
@@ -2061,7 +2061,7 @@
 			handleStateInline ( start, end );
 			AudioUtils.FX( start, end, AudioUtils.FXBank.Gain( val ) );
 
-			OneUp ('Applied Gain (fx)');
+			OneUp ('已应用增益 (fx)');
 		});
 
 		app.listenFor ('RequestActionFX_PREVIEW_SPEED', function ( val ) {
@@ -2170,7 +2170,7 @@
 
 				app.fireEvent ('RequestSeekTo', (start/wavesurfer.getDuration()));
 
-				OneUp ('Applied Speed (fx)');
+				OneUp ('已应用变速 (fx)');
 
 //				AudioUtils.Insert (new_offset, rendered_buffer);
 
@@ -2266,8 +2266,8 @@
 				}
 			}
 			
-			if (undo) OneUp ('Undo ' + state.desc);
-			else OneUp ('Redo ' + state.desc);
+			if (undo) OneUp ('撤销 ' + state.desc);
+			else OneUp ('重做 ' + state.desc);
 		});
 
 

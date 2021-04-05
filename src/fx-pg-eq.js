@@ -2567,7 +2567,7 @@
 
 		var x = new PKAudioFXModal ({
 			id: filter_id,
-			title: 'New Recording',
+			title: '新建录制',
 
 			ondestroy: function ( q ) {
 				// destroy audio...
@@ -2584,26 +2584,26 @@
 
 			body: '<div class="pk_rec" style="user-select:none">' +
 				'<div class="pk_row">' +
-				  '<label>Devices:</label>' +
+				  '<label>设备:</label>' +
 				  '<select style="max-width:220px"></select>' +
 				'</div>' +
 				'<div class="pk_row">' +
 
-				  '<div style="float:left"><label>Volume</label>' +
+				  '<div style="float:left"><label>音量</label>' +
 				  '<canvas width="200" height="40"></canvas></div>' +
 
-				  '<div style="float:left;margin-left:20px;"><label>Time</label>' +
+				  '<div style="float:left;margin-left:20px;"><label>时长</label>' +
 				  '<span style="font-size: 24px;line-height: 50px;">0.0</span></div>' +
 				  '<div style="clear:both;height:10px"></div>' +
-				  '<div><label>Waveform</label><canvas width="1000" height="200" style="image-rendering:pixelated;width:500px;height:100px;display:block;background:#000"></canvas></div>'+
+				  '<div><label>波形</label><canvas width="1000" height="200" style="image-rendering:pixelated;width:500px;height:100px;display:block;background:#000"></canvas></div>'+
 				'</div>' +
 				'<div class="pk_row">' +
-				  '<a class="pk_tbsa pk_inact" style="text-align: center;">START RECORDING</a>' +
-				  '<a class="pk_tbsa pk_inact" style="margin-left: 24px; text-align: center;">PAUSE</a>' +
+				  '<a class="pk_tbsa pk_inact" style="text-align: center;">开始录制</a>' +
+				  '<a class="pk_tbsa pk_inact" style="margin-left: 24px; text-align: center;">暂停</a>' +
 				'</div>' +
 				'<div class="pk_row">' +
-					'<a class="pk_tbsa" style="float:left;display:none;text-align:center;box-shadow:0 0 7px #3a6b79 inset;">OPEN RECORDING</a>' +
-					'<a class="pk_tbsa" style="float:left;display:none;margin-left: 24px; text-align: center;">APPEND TO EXISTING</a>' +
+					'<a class="pk_tbsa" style="float:left;display:none;text-align:center;box-shadow:0 0 7px #3a6b79 inset;">打开录制片段</a>' +
+					'<a class="pk_tbsa" style="float:left;display:none;margin-left: 24px; text-align: center;">追加到现有</a>' +
 				'</div>' +
 				'</div>',
 
@@ -2861,7 +2861,7 @@
 
 						enumerate ();
 					}).catch(function(error) {
-						alert("no microphone permissions found!");
+						alert("没有麦克风权限!");
 					});
 
 					var enumerate = function () {
@@ -2937,7 +2937,7 @@
 
 						// check if recording exists - ask for confirmation
 						if (has_recorded) {
-							if (!window.confirm("Are you sure? This will discard the current recording."))
+							if (!window.confirm("你确定吗？ 这将丢弃当前已录制的音频。"))
 							{
 								return ;
 							}
@@ -2948,7 +2948,7 @@
 							stop ();
 
 							btn_pause.classList.add ('pk_inact');
-							btn_start.innerText = 'START RECORDING';
+							btn_start.innerText = '开始录制';
 							btn_start.style.boxShadow = 'none';
 
 							return ;
@@ -2984,7 +2984,7 @@
 
 			            	is_active = true;
 			            	btn_pause.classList.remove ('pk_inact');
-			            	btn_start.innerText = 'FINISH RECORDING';
+			            	btn_start.innerText = '完成录制';
 			            	btn_start.style.boxShadow = '#992222 0px 0px 6px inset';
 			            	script_processor.onaudioprocess = fetchBufferFunction;
 
@@ -3002,7 +3002,7 @@
 
 						is_paused = !is_paused;
 
-						btn_pause.innerText = is_paused ? 'UN-PAUSE' : 'PAUSE';
+						btn_pause.innerText = is_paused ? '继续' : '暂停';
 					};
 
 					btn_open.onclick = function () {
