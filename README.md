@@ -1,16 +1,18 @@
-# AudioMass
-Free full-featured web-based audio &amp; waveform editing tool
+# AudioMass 音频编辑器
 
+此仓库为 [https://github.com/pkalogiros/AudioMass](https://github.com/pkalogiros/AudioMass) 的汉化版本。
 
-Live: [https://audiomass.co](https://audiomass.co)
+免费的全功能的基于Web的音频和波形编辑器
+
+试用（汉化版）: [https://audiomass.vercel.app/](https://audiomass.vercel.app/)
 
 ---
 
-## Getting it to Run!
-1. please checkout this repo (or download it as zip)
-2. navigate to it through your favorite CLI, then access the ```src``` dir
-3. Run ```go run audiomass-server.go```  -  or if you do not have golang installed, you can use a simple python webserver by running ```python audiomass-server.py```
-4. Navigate to [http://localhost:5055/](http://localhost:5055/) and have fun!
+## 本地运行
+1. 克隆此仓库（或将其下载为zip）
+2. 通过你最喜欢的 CLI 进入仓库的 ```src``` 目录
+3. 运行 ```go run audiomass-server.go```  -  或者如果你没有安装 golang 的话，你也可以运行一个简单的 Python 服务器 ```python audiomass-server.py```
+4. 浏览器打开 [http://localhost:5055/](http://localhost:5055/) 即可！
 
 ...
 
